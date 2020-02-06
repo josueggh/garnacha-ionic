@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button color="undefined" class="btn-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Crashlytics</ion-title>
+    <ion-buttons slot="end">
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <p>A Google Firebase Crashlytics plugin to enable capture of crash reports.</p>
+  <h1>What is Crashlytics?</h1>
+  <p> Firebase Crashlytics helps you track, prioritize, and fix stability issues that erode app quality, in realtime.
+    Spend less time triaging and troubleshooting crashes and more time building app features that delight users</p>
+  <ion-item lines="none" class="item-1" margin-bottom>
+    <ion-label position="stacked" class="label" no-margin>
+      <strong class="align">Event Name <ion-icon name="medical" class="required"></ion-icon>: </strong></ion-label>
+    <ion-textarea class="input" [(ngModel)]="event" rows="2" cols="20" placeholder="Event name" name="answer"
+      clear-input="true"></ion-textarea>
+  </ion-item>
+  <ion-button color="success" expand="block" (click)="addException(event)">Add Fake Exception</ion-button>
+</ion-content>

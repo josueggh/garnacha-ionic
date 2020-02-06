@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="undefined" class="btn-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Analytics</ion-title>
+    <ion-buttons slot="end">
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>What is Analytics?</h1>
+  <p>A Google Firebase Analytics plugin to enable capture of user progress in your app.</p>
+  <ion-item lines="none" class="item-1" margin-bottom>
+    <ion-label position="stacked" class="label" no-margin>
+      <strong class="align">Event Name <ion-icon name="medical" class="required"></ion-icon>: </strong></ion-label>
+    <ion-textarea class="input" [(ngModel)]="event" rows="2" cols="20" placeholder="Event name" name="answer"
+      clear-input="true"></ion-textarea>
+  </ion-item>
+  <ion-button color="success" expand="block" (click)="addPageView(event)">Create dummy page view for testing</ion-button>
+</ion-content>

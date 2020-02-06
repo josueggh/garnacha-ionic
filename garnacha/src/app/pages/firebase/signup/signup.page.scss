@@ -1,0 +1,71 @@
+/**
+* Ionic 4 Firebase Full App  (https://store.enappd.com/product/ionic-4-firebase-full-app-starter)
+*
+* Copyright © 2019-present Enappd. All rights reserved.
+*
+* This source code is licensed as per the terms found in the
+* LICENSE.md file in the root directory of this source tree.
+*/ 
+.input {
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 9px;
+  font-size: 0.9em !important;
+}
+@media screen and (min-width: 767px) {
+  ion-card {
+    width: 600px;
+    margin: auto;
+  }
+}
+.title {
+  font-size: 18px;
+}
+.logo {
+  width: 1.25em !important;
+}
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.img-logo {
+  height: 150px;
+  width: 150px;
+}
+.fire-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ion-card {
+  --background: #fff;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.btn-transition {
+  background: linear-gradient(to right, #f57c00 14%, #ffca00 96%);
+}
+.btn-color {
+  color: #ffa000;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.img-logo {
+  height: 150px;
+  width: 150px;
+}
+.fire-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

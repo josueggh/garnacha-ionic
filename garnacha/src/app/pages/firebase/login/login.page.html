@@ -1,0 +1,104 @@
+<!-- /**
+* Ionic 4 Firebase Full App  (https://store.enappd.com/product/ionic-4-firebase-full-app-starter)
+*
+* Copyright © 2019-present Enappd. All rights reserved.
+*
+* This source code is licensed as per the terms found in the
+* LICENSE.md file in the root directory of this source tree.
+*/  -->
+
+
+<ion-content no-padding>
+  <div id="sign-in-button"></div>
+  <div class="main">
+    <ion-card no-margin class="card">
+      <ion-card-content>
+        <ion-row class="row">
+          <div class="fire-logo">
+            <img src="../../assets/imgs/fire.png" class="img-logo">
+            <ion-text>
+              <h2 no-margin margin-vertical text-center>Sign In</h2>
+            </ion-text>
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="email" placeholder="Email" [(ngModel)]="email" class="input" padding-horizontal
+              clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password" class="input"
+              padding-horizontal clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text float-end color="medium" (click)="forgotPassword()">
+              <h6 no-margin text-end class="small">Forgot Password?</h6>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="signin()" color="undefined" class="btn-transition"><strong
+                class="white">Sign In</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <div class="line"></div>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" fill="outline" color="undefined" (click)="util.navigate('signup')"
+              class="btn-color"><strong>New? Create an Account</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <app-facebook-login (accessToken)="facebookLogin($event)"></app-facebook-login>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <app-twitter-login (accessToken)="twitterLogin($event)"></app-twitter-login>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <app-google-login (accessToken)="googleLogin($event)"></app-google-login>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="signInAnonymously()" color="undefined" class="btn-transition"><strong
+                class="white">Anonymously Sign In</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="!showPhoneAuth">
+          <ion-col>
+             You can use Phone Auth in PWA and browser only
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"> 
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss" (ionChange)="contryCodeChange($event)"  [disabled]="!showPhoneAuth">
+              <ion-select-option *ngFor="let country of util.CountryJson" value={{country.dial_code}}>
+                {{country.dial_code + ' ' + country.name}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col size="8">
+            <ion-input clearInput type="test" placeholder="Your Contact Number" [(ngModel)]="number" class="input"
+              padding-horizontal clear-input="true"  [disabled]="!showPhoneAuth"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="signinWithPhoneNumber($event)" color="undefined"
+              class="btn-transition" [disabled]="!showPhoneAuth">
+              Sign in with Phone number</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

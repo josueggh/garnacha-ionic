@@ -1,0 +1,36 @@
+
+ <ion-app>
+    <ion-split-pane>
+      <ion-menu type="overlay">
+        <ion-header class="head">
+          <ion-toolbar text-start>
+            <ion-title>Firebase Kit</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="app-back">
+          <ion-list no-padding class="list-padd" no-margin>
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appMenu">
+              <ion-item [routerLink]="[p.url]" detail>
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                <ion-label>
+                  {{ p.title }}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+          <ion-item detail (click)="logout()">
+            <ion-icon slot="start" name="person"></ion-icon>
+            <ion-label>
+              Logout
+            </ion-label>
+          </ion-item>
+          <p class="version">Version 1.0</p>
+  
+          <p class="copyright">&copy;</p>
+          <hr style="background: #f4f4f4" />
+        </ion-content>
+      </ion-menu>
+      <ion-router-outlet main></ion-router-outlet>
+    </ion-split-pane>
+  </ion-app>
+  

@@ -1,0 +1,38 @@
+/**
+* Ionic 4 Firebase Full App  (https://store.enappd.com/product/ionic-4-firebase-full-app-starter)
+*
+* Copyright © 2019-present Enappd. All rights reserved.
+*
+* This source code is licensed as per the terms found in the
+* LICENSE.md file in the root directory of this source tree.
+*/ 
+ ion-content{
+    --ion-background-color:#F8F8F8;
+}
+.version{
+    margin: 0px 0px 0px 10px;
+    color: #989aa2;
+    font-size: 14px;
+}
+.config{
+    margin: 5px 0px 0px 10px;
+    color: #989aa2;
+    font-size: 14px;
+}
+.copyright{
+    margin: 5px 0px 0px 10px;
+    color: #989aa2;
+    font-size: 14px;
+}
+ion-header {
+    --background: linear-gradient(to right, #f57c00 14%, #ffca00 96%);;
+}
+ion-toolbar{
+    --background: linear-gradient(to right, #f57c00 14%, #ffca00 96%);;
+}
+ion-title{
+    color: white;
+}
+.list-padd{
+    padding-top: 8px;
+}
