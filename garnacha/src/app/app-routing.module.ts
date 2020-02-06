@@ -11,7 +11,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { GuardsService } from './guards/guards.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: 'welcome', loadChildren: './pages/walkthrough/walkthrough.module#WalkthroughPageModule'},
   { path: 'home', loadChildren: './pages/firebase/firebase-home/home.module#HomePageModule' , canActivate: [GuardsService] },
   { path: 'signup', loadChildren: './pages/firebase/signup/signup.module#SignupPageModule' },
   { path: 'login', loadChildren: './pages/firebase/login/login.module#LoginPageModule' },

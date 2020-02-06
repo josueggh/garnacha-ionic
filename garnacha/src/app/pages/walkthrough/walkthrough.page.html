@@ -1,0 +1,102 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button class="skip-walkthrough-button" fill="clear" (click)="skipWalkthrough()">skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides class="walkthrough-slides" pager="true" [options]="slidesOptions">
+    <ion-slide class="first-slide illustration-and-decoration-slide">
+      <ion-row class="slide-inner-row">
+        <ion-col class="illustration-col">
+          <app-aspect-ratio [ratio]="{w:1200, h:800}">
+            <app-image-shell class="illustration-image" animation="spinner" [src]="'./assets/imgs/food.png'" [alt]="'walkthrough'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="decoration-col">
+          <svg class="vector-decoration" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px" width="100%" viewBox="0 0 90 20" style="enable-background:new 0 0 90 20;" xml:space="preserve" preserveAspectRatio="none">
+            <path d="M0 0 V5 H5 C25 5 25 20 45 20 S65 5 85 5 H90 V0 Z"/>
+          </svg>
+        </ion-col>
+        <ion-col class="info-col">
+          <div class="info-wrapper">
+            <h3 class="info-title ">Welcome to Ruta de la Garnacha</h3>
+            <p class="info-paragraph">
+              Your guide for the best food places in Mexico and the World.
+            </p>
+            <p class="info-paragraph">
+              <b>Here you will find all that make us garnacheros.</b>
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide class="second-slide illustration-and-decoration-slide">
+      <ion-row class="slide-inner-row">
+        <ion-col class="illustration-col">
+          <app-aspect-ratio [ratio]="{w:1096, h:806}">
+            <app-image-shell class="illustration-image"
+             animation="spinner" 
+             [src]="'./assets/imgs/walkthrough-illustration-2.svg'" 
+             [alt]="'walkthrough'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="decoration-col">
+          <!-- http://jxnblk.com/paths/?d=M0%200%20L64%200%20L64%2024%20Q56%2024%2048%2016%20Q34%200%2022%2010%20Q10%2022%200%208%20Z -->
+          <svg class="vector-decoration" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px" width="100%" viewBox="0 0 64 24" style="enable-background:new 0 0 64 24;" xml:space="preserve" preserveAspectRatio="none">
+            <path d="M0 0 L64 0 L64 24 Q56 24 48 16 Q34 0 22 10 Q10 22 0 8 Z"/>
+          </svg>
+        </ion-col>
+        <ion-col class="info-col">
+          <div class="info-wrapper">
+            <h3 class="info-title">Become a Garnachero</h3>
+            <p class="info-paragraph">
+              Help us to make our site and App the best.
+            </p>
+            <p class="info-paragraph">
+              As Garnachero, you can help us! Is really easy! Just comment, recommend a site or upload pictures for the places that you love.
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide class="last-slide illustration-and-decoration-slide">
+      <ion-row class="slide-inner-row">
+        <ion-col class="illustration-col">
+          <app-aspect-ratio [ratio]="{w:924, h:819}">
+            <app-image-shell class="illustration-image" animation="spinner" [src]="'./assets/imgs/walkthrough-illustration-4.svg'" [alt]="'walkthrough'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="decoration-col">
+          <!-- http://jxnblk.com/paths/?d=M0%200%20L64%200%20L64%2010%20Q56%2024%2046%2012%20Q34%200%2026%208%20Q10%2022%200%208%20Z -->
+          <svg class="vector-decoration" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px" width="100%" viewBox="0 0 64 18" style="enable-background:new 0 0 64 24;" xml:space="preserve" preserveAspectRatio="none">
+            <path d="M0 0 L64 0 L64 10 Q56 24 46 12 Q34 0 26 8 Q10 22 0 8 Z"/>
+          </svg>
+        </ion-col>
+        <ion-col class="info-col">
+          <ion-row class="info-outer">
+            <ion-col>
+              <div class="info-wrapper">
+                <h3 class="info-title">It's time to start</h3>
+                <p class="info-paragraph">
+                  Hope you like this version of Garnacha, please let us know your feedback so we can keep improving it! Enjoy 😃
+                </p>
+              </div>
+            </ion-col>
+            <ion-col class="call-to-actions-wrapper">
+              <ion-button class="get-started-button" expand="block" [routerLink]="['/home']">Ir a Garnacha</ion-button>
+              <ion-row class="alt-call-to-action-row">
+                <span class="cta-leading-text">Be part of the garnacheros</span>
+                <ion-button class="login-button" fill="clear" [routerLink]="['/login']">
+                  Join or Sign up here
+                </ion-button>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

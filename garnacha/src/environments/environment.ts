@@ -13,12 +13,13 @@
 export const environment = {
   production: false,
   config : {
-    apiKey: 'AIzaSyAnotfaQmw5cJMJxQX-04fQ4YksZZWRDjQ',
-    authDomain: 'ionic4fullapp.firebaseapp.com',
-    databaseURL: 'https://ionic4fullapp.firebaseio.com',
-    projectId: 'ionic4fullapp',
-    storageBucket: 'ionic4fullapp.appspot.com',
-    messagingSenderId: '124018728460'
+    apiKey: "AIzaSyDwUadzi3Oh9iOfWI8AqcOt0jeZRXgSpkA",
+    authDomain: "ruta-de-la-garnacha-1.firebaseapp.com",
+    databaseURL: "https://ruta-de-la-garnacha-1.firebaseio.com",
+    projectId: "ruta-de-la-garnacha-1",
+    storageBucket: "ruta-de-la-garnacha-1.appspot.com",
+    messagingSenderId: "69952393482",
+    appId: "1:69952393482:web:403a105170411404c2eaf3"
   }
 };
 

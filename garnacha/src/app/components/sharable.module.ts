@@ -13,14 +13,31 @@ import { IonicModule } from '@ionic/angular';
 import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
 import { TwitterLoginComponent } from './twitter-login/twitter-login.component';
 import { GoogleLoginComponent } from './google-login/google-login.component';
+import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
+import { ImageShellComponent } from './image-shell/image-shell.component';
+import { TextShellComponent } from './text-shell/text-shell.component';
 
 @NgModule({
-    declarations: [FacebookLoginComponent, TwitterLoginComponent, GoogleLoginComponent],
+    declarations: [
+        FacebookLoginComponent,
+        TwitterLoginComponent, 
+        GoogleLoginComponent,
+        AspectRatioComponent,
+        ImageShellComponent,
+        TextShellComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
     ],
-    exports: [FacebookLoginComponent, TwitterLoginComponent, GoogleLoginComponent]
+    exports: [
+        FacebookLoginComponent,
+         TwitterLoginComponent, 
+         GoogleLoginComponent,
+         AspectRatioComponent,
+         ImageShellComponent,
+        TextShellComponent
+    ]
 })
 export class SharableModule { }
