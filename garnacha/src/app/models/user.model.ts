@@ -38,6 +38,16 @@ export class UserModel {
     }
 }
 
+const emptyUser = {
+    $uid : null,
+    $info : {
+        displayName : null,
+        photoURL: null,
+    }
+}
+
+export {emptyUser};
+
 export interface UserDto {
     id: string;
     username?: string;

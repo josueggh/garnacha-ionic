@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Garnachero Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="user-profile-content" *ngIf="fullProfile.$uid">
+  <ion-row class="user-details-section">
+    <ion-col class="user-image-wrapper">
+      <app-aspect-ratio [ratio]="{w: 50, h: 50}">
+        <app-image-shell class="user-image" animation="spinner" [src]="fullProfile.$info?.photoURL"></app-image-shell>
+      </app-aspect-ratio>
+    </ion-col>
+    <ion-col class="user-info-wrapper">
+      <ion-row class="user-data-row">
+        <ion-col size="10">
+          <h3 class="user-name">
+            <app-text-shell [data]="fullProfile.$info?.displayName"></app-text-shell>
+          </h3>
+          <h5 class="user-title">
+            Garnachero since: <app-text-shell [data]="fullProfile.$info?.metadata.creationTime  | date"></app-text-shell>
+          </h5>
+        </ion-col>
+      </ion-row>
+      <ion-row class="actions-row">
+        <ion-col class="main-actions">
+          <ion-button class="call-to-action-btn" size="small" color="primary">{{ 'FOLLOW' | translate }}</ion-button>
+          <ion-button class="call-to-action-btn" size="small" color="medium">{{ 'MESSAGE' | translate }}</ion-button>
+        </ion-col>
+        <ion-col class="secondary-actions">
+          <ion-button class="more-btn" size="small" fill="clear" color="medium" (click)="openLanguageChooser()">
+            <ion-icon slot="icon-only" name="more"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

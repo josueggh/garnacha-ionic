@@ -14,6 +14,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './services/firestore/firebase-authentication.service';
 import { UtilService } from './services/util/util.service';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -27,8 +29,9 @@ export class AppComponent {
     { title: 'Ad Mob', url: '/ad-mob', icon: 'mail-unread' },
     { title: 'Crashlytics', url: '/crash-lytics', icon: 'bug' },
     { title: 'Analytics', url: '/analytics', icon: 'analytics' }
-
   ];
+
+  textDir = 'ltr';
 
   constructor(
     private authService: AuthenticationService,
@@ -36,9 +39,11 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private firebaseAnalytics: FirebaseAnalytics
+    private firebaseAnalytics: FirebaseAnalytics,
+    public translate: TranslateService
   ) {
     this.initializeApp();
+    this.setLanguage();
   }
   logout() {
     this.authService.logout().then(() => {
@@ -55,5 +60,18 @@ export class AppComponent {
         .then((res: any) => {})
         .catch((error: any) => console.error(error));
     });
+  }
+
+  setLanguage() {
+    this.translate.setDefaultLang('en');
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    this.translate.use('en');
+
+    // this is to determine the text direction depending on the selected language
+    // for the purpose of this example we determine that only arabic and hebrew are RTL.
+    // this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    //   this.textDir = (event.lang === 'ar' || event.lang === 'iw') ? 'rtl' : 'ltr';
+    // });
   }
 }

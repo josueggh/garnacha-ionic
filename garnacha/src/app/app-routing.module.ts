@@ -14,13 +14,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', loadChildren: './pages/walkthrough/walkthrough.module#WalkthroughPageModule'},
   { path: 'home', loadChildren: './pages/firebase/firebase-home/home.module#HomePageModule' , canActivate: [GuardsService] },
-  { path: 'signup', loadChildren: './pages/firebase/signup/signup.module#SignupPageModule' },
   { path: 'login', loadChildren: './pages/firebase/login/login.module#LoginPageModule' },
   { path: 'ad-mob', loadChildren: './ad-mob/ad-mob.module#AdMobPageModule' , canActivate: [GuardsService]},
+  //{ path: 'profile', loadChildren: './pages/firebase/profile/profile.module#ProfilePageModule', canActivate: [GuardsService] },
   { path: 'images', loadChildren: './pages/firebase/image-upload/image-upload.module#ImageUploadPageModule' , canActivate: [GuardsService] },
   { path: 'crash-lytics', loadChildren: './crash-lytics/crash-lytics.module#CrashLyticsPageModule' },
   { path: 'analytics', loadChildren: './analytics/analytics.module#AnalyticsPageModule' },
-
+  { path: 'app', loadChildren: './tabs/tabs.module#TabsPageModule' }
 ];
 
 @NgModule({

@@ -38,6 +38,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AdMobPro } from '@ionic-native/admob-pro/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FirebaseCrashlytics } from '@ionic-native/firebase-crashlytics/ngx';
+
+import { SharableModule } from './components/sharable.module';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -61,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    SharableModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,

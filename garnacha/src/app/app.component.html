@@ -1,36 +1,125 @@
-
- <ion-app>
-    <ion-split-pane>
-      <ion-menu type="overlay">
-        <ion-header class="head">
-          <ion-toolbar text-start>
-            <ion-title>Firebase Kit</ion-title>
-          </ion-toolbar>
-        </ion-header>
-        <ion-content class="app-back">
-          <ion-list no-padding class="list-padd" no-margin>
-            <ion-menu-toggle auto-hide="false" *ngFor="let p of appMenu">
-              <ion-item [routerLink]="[p.url]" detail>
-                <ion-icon slot="start" [name]="p.icon"></ion-icon>
-                <ion-label>
-                  {{ p.title }}
-                </ion-label>
-              </ion-item>
-            </ion-menu-toggle>
-          </ion-list>
-          <ion-item detail (click)="logout()">
-            <ion-icon slot="start" name="person"></ion-icon>
-            <ion-label>
-              Logout
-            </ion-label>
-          </ion-item>
-          <p class="version">Version 1.0</p>
-  
-          <p class="copyright">&copy;</p>
-          <hr style="background: #f4f4f4" />
-        </ion-content>
-      </ion-menu>
-      <ion-router-outlet main></ion-router-outlet>
-    </ion-split-pane>
-  </ion-app>
-  
+<ion-app dir="{{textDir}}">
+  <ion-split-pane>
+    <ion-menu class="app-sidemenu">
+      <ion-header>
+        <ion-toolbar>
+          <ion-row class="user-details-wrapper">
+            <ion-col size="4">
+              <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+                <app-image-shell class="user-avatar" animation="spinner" [src]="'https://pbs.twimg.com/profile_images/722153095761903616/WjIKQ7Wm_400x400.jpg'"></app-image-shell>
+              </app-aspect-ratio>
+            </ion-col>
+            <ion-col class="user-info-wrapper" size="8">
+              <h3 class="user-name">Ionic Themes</h3>
+              <h5 class="user-handle">@IonicThemes</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row class="user-stats-wrapper user-details-wrapper">
+            <ion-col>
+              <span class="user-stat-value">1553</span>
+              <span class="user-stat-name">Following</span>
+            </ion-col>
+            <ion-col>
+              <span class="user-stat-value">537</span>
+              <span class="user-stat-name">Followers</span>
+            </ion-col>
+          </ion-row>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-list-header>Layouts</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item [routerLink]="p.url">
+              <ion-icon slot="start" [src]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>Forms</ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerLink]="['/forms-and-validations']">
+              <ion-icon slot="start" src="./assets/sample-icons/side-menu/forms.svg"></ion-icon>
+              <ion-label>
+                Forms & Validations
+              </ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/forms-filters']">
+              <ion-icon slot="start" name="options"></ion-icon>
+              <ion-label>
+                Filters
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>Integrations</ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerLink]="['/firebase/listing']">
+              <ion-icon slot="start" name="flame"></ion-icon>
+              <ion-label>
+                Firebase
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>Functionalities</ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerLink]="['/maps']">
+              <ion-icon slot="start" name="map"></ion-icon>
+              <ion-label>
+                Maps & Geolocation
+              </ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/video-playlist']">
+              <ion-icon slot="start" name="videocam"></ion-icon>
+              <ion-label>
+                Video Playlist
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>Account</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of accountPages; let i = index">
+            <ion-item [routerLink]="p.url">
+              <ion-icon slot="start" [src]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>Showcase</ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerLink]="['/showcase/app-shell']">
+              <ion-icon slot="start" name="egg"></ion-icon>
+              <ion-label>
+                App Shell
+              </ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/showcase/route-resolvers-ux']">
+              <ion-icon slot="start" name="cog"></ion-icon>
+              <ion-label>
+                Route Resolvers UX
+              </ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/showcase/custom-components']">
+              <ion-icon slot="start" name="color-wand"></ion-icon>
+              <ion-label>
+                Custom Components
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <!-- Main app content gets rendered in this router-outlet -->
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

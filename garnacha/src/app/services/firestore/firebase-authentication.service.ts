@@ -14,7 +14,7 @@ import { UtilService } from '../util/util.service';
 import * as firebase from 'firebase';
 
 export class AuthInfo {
-    constructor(public $uid: string) { }
+    constructor(public $uid: string, public $info: any) { }
 
     isLoggedIn() {
         return !!this.$uid;
@@ -23,7 +23,7 @@ export class AuthInfo {
 
 @Injectable()
 export class AuthenticationService {
-    static UNKNOWN_USER = new AuthInfo(null);
+    static UNKNOWN_USER = new AuthInfo(null, null);
     recaptchaVerifier: any = {}
     confirmationResult: any = {};
     userData: any = {};
@@ -36,7 +36,7 @@ export class AuthenticationService {
             take(1)
         ).subscribe(user => {
             if (user) {
-                this.authInfo$.next(new AuthInfo(user.uid));
+                this.authInfo$.next(new AuthInfo(user.uid , user));
             }
         });
 
@@ -53,7 +53,7 @@ export class AuthenticationService {
             this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
                 .then(res => {
                     if (res.user) {
-                        this.authInfo$.next(new AuthInfo(res.user.uid));
+                        this.authInfo$.next(new AuthInfo(res.user.uid, res.user));
                         this.loginType = 'Login with Email and password';
                         resolve(res.user);
                     }
@@ -92,7 +92,7 @@ export class AuthenticationService {
                 .then(res => {
                     if (res.user) {
                         this.loginType = 'Login with Email and password';
-                        this.authInfo$.next(new AuthInfo(res.user.uid));
+                        this.authInfo$.next(new AuthInfo(res.user.uid, res.user));
                         resolve(res.user);
                     }
                 })
@@ -165,7 +165,7 @@ export class AuthenticationService {
         return this.fireAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     }
     public createSocialLoginUser(user): Promise<any> {
-        this.authInfo$.next(new AuthInfo(user.uid));
+        this.authInfo$.next(new AuthInfo(user.uid, user));
         return;
     }
 
