@@ -4,118 +4,49 @@
       <ion-header>
         <ion-toolbar>
           <ion-row class="user-details-wrapper">
-            <ion-col size="4">
-              <app-aspect-ratio [ratio]="{w: 1, h: 1}">
-                <app-image-shell class="user-avatar" animation="spinner" [src]="'https://pbs.twimg.com/profile_images/722153095761903616/WjIKQ7Wm_400x400.jpg'"></app-image-shell>
-              </app-aspect-ratio>
+            <ion-col size="8" offset="2">
+              <app-image-shell animation="spinner" [src]="'/assets/imgs/garnacha_white.png'"></app-image-shell>
             </ion-col>
-            <ion-col class="user-info-wrapper" size="8">
-              <h3 class="user-name">Ionic Themes</h3>
-              <h5 class="user-handle">@IonicThemes</h5>
-            </ion-col>
-          </ion-row>
-          <ion-row class="user-stats-wrapper user-details-wrapper">
-            <ion-col>
-              <span class="user-stat-value">1553</span>
-              <span class="user-stat-name">Following</span>
-            </ion-col>
-            <ion-col>
-              <span class="user-stat-value">537</span>
-              <span class="user-stat-name">Followers</span>
+            <ion-col class="social-info-wrapper ion-text-center" size="12">
+              <ion-row>
+                <ion-col size="2" offset="3">
+                  <ion-button href="https://twitter.com/larutagarnacha" target="_blank" fill="transparent">
+                    <ion-icon class="social__icon" color="primary" name="logo-twitter"></ion-icon>  
+                  </ion-button>
+                </ion-col>
+                <ion-col size="2">
+                  <ion-button href="https://www.facebook.com/LaRutadelaGarnachaMx/" target="_blank"  fill="transparent">
+                    <ion-icon class="social__icon" color="primary" name="logo-facebook"></ion-icon>
+                  </ion-button>
+                                 
+                </ion-col>
+                <ion-col size="2">
+                  <ion-button href="https://www.instagram.com/larutadelagarnacha/" target="_blank"  fill="transparent">
+                    <ion-icon class="social__icon" color="primary" name="logo-instagram"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
             </ion-col>
           </ion-row>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-list-header>Layouts</ion-list-header>
+          <ion-list-header>Get involved</ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item [routerLink]="p.url">
-              <ion-icon slot="start" [src]="p.icon"></ion-icon>
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
-        <ion-list>
-          <ion-list-header>Forms</ion-list-header>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item [routerLink]="['/forms-and-validations']">
-              <ion-icon slot="start" src="./assets/sample-icons/side-menu/forms.svg"></ion-icon>
-              <ion-label>
-                Forms & Validations
-              </ion-label>
-            </ion-item>
-            <ion-item [routerLink]="['/forms-filters']">
-              <ion-icon slot="start" name="options"></ion-icon>
-              <ion-label>
-                Filters
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-        <ion-list>
-          <ion-list-header>Integrations</ion-list-header>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item [routerLink]="['/firebase/listing']">
-              <ion-icon slot="start" name="flame"></ion-icon>
-              <ion-label>
-                Firebase
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-        <ion-list>
-          <ion-list-header>Functionalities</ion-list-header>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item [routerLink]="['/maps']">
-              <ion-icon slot="start" name="map"></ion-icon>
-              <ion-label>
-                Maps & Geolocation
-              </ion-label>
-            </ion-item>
-            <ion-item [routerLink]="['/video-playlist']">
-              <ion-icon slot="start" name="videocam"></ion-icon>
-              <ion-label>
-                Video Playlist
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-        <ion-list>
-          <ion-list-header>Account</ion-list-header>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of accountPages; let i = index">
-            <ion-item [routerLink]="p.url">
-              <ion-icon slot="start" [src]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-        <ion-list>
-          <ion-list-header>Showcase</ion-list-header>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item [routerLink]="['/showcase/app-shell']">
-              <ion-icon slot="start" name="egg"></ion-icon>
-              <ion-label>
-                App Shell
-              </ion-label>
-            </ion-item>
-            <ion-item [routerLink]="['/showcase/route-resolvers-ux']">
-              <ion-icon slot="start" name="cog"></ion-icon>
-              <ion-label>
-                Route Resolvers UX
-              </ion-label>
-            </ion-item>
-            <ion-item [routerLink]="['/showcase/custom-components']">
-              <ion-icon slot="start" name="color-wand"></ion-icon>
-              <ion-label>
-                Custom Components
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          <ion-item detail (click)="logout()">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+            <ion-label>
+              Logout
+            </ion-label>
+          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>

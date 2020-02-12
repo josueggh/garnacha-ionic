@@ -13,21 +13,33 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'user',
+        path: '',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/firebase/firebase-home/home.module#HomePageModule'
+          }
+        ]
+      },
+      {
+        path: 'discover',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/firebase/firebase-home/home.module#HomePageModule'
+          }
+        ]
+      },
+      {
+        path: 'profile',
         children: [
           {
             path: '',
             loadChildren: '../pages/firebase/profile/profile.module#ProfilePageModule',
-            //loadChildren: '../ad-mob/ad-mob.module#AdMobPageModule',
-            //canActivate: [GuardsService]
-          },
-          /*{
-            path: 'friends',
-            loadChildren: () => import('../user/friends/user-friends.module').then(m => m.UserFriendsPageModule)
-          }*/
+            canActivate: [GuardsService]
+          }
         ]
       },
-      
     ]
   },
   {

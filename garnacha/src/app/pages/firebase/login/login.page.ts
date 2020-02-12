@@ -160,7 +160,7 @@ export class LoginPage implements OnInit {
       this.authServ.fbLogin().then(
         succes => {
           this.authServ.createSocialLoginUser(succes.user);
-          this.util.navigate('home', false);
+          this.util.navigate('app/login', false);
         }
       ).catch(
         err => {
@@ -171,7 +171,7 @@ export class LoginPage implements OnInit {
       this.authServ.loginWithFacebook($event).then(
         succes => {
           this.authServ.createSocialLoginUser(succes);
-          this.util.navigate('home', false);
+          this.util.navigate('app/login', false);
         }
       ).catch(
         err => {
@@ -211,7 +211,7 @@ export class LoginPage implements OnInit {
       this.authServ.googleLogin().then(
         succes => {
           this.authServ.createSocialLoginUser(succes.user);
-          this.util.navigate('profile', false);
+          this.util.navigate('app/profile', false);
         }
       ).catch(
         err => {
@@ -222,7 +222,7 @@ export class LoginPage implements OnInit {
       this.authServ.loginWithGoogle($event.idToken, $event.accessToken).then(
         succes => {
           this.authServ.createSocialLoginUser(succes);
-          this.util.navigate('profile', false);
+          this.util.navigate('app/profile', false);
         }
       ).catch(
         err => {

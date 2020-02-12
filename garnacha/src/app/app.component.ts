@@ -23,12 +23,11 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 })
 export class AppComponent {
 
-  public appMenu = [
-    { title: 'Data operation', url: '/ad-mob', icon: 'help' },
-    { title: 'Storage', url: '/images', icon: 'images' },
-    { title: 'Ad Mob', url: '/ad-mob', icon: 'mail-unread' },
-    { title: 'Crashlytics', url: '/crash-lytics', icon: 'bug' },
-    { title: 'Analytics', url: '/analytics', icon: 'analytics' }
+  public appPages = [
+    { title: 'Our Store', url: 'https://www.kichink.com/stores/larutadelagarnacha/', icon: 'basket' },
+    { title: 'Rewards', url: '/rewards', icon: 'trophy' },
+    { title: 'Youtube', url: '/ad-mob', icon: 'logo-youtube' },
+    { title: 'Contact', url: '/contact', icon: 'paper-plane' },
   ];
 
   textDir = 'ltr';
@@ -47,7 +46,7 @@ export class AppComponent {
   }
   logout() {
     this.authService.logout().then(() => {
-      this.util.navigate('login', false);
+      this.util.navigate('app', false);
 
     })
   }
@@ -64,14 +63,6 @@ export class AppComponent {
 
   setLanguage() {
     this.translate.setDefaultLang('en');
-
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
     this.translate.use('en');
-
-    // this is to determine the text direction depending on the selected language
-    // for the purpose of this example we determine that only arabic and hebrew are RTL.
-    // this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-    //   this.textDir = (event.lang === 'ar' || event.lang === 'iw') ? 'rtl' : 'ltr';
-    // });
   }
 }

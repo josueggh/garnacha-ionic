@@ -1,123 +1,131 @@
-/**
-* Ionic 4 Firebase Full App  (https://store.enappd.com/product/ionic-4-firebase-full-app-starter)
-*
-* Copyright © 2019-present Enappd. All rights reserved.
-*
-* This source code is licensed as per the terms found in the
-* LICENSE.md file in the root directory of this source tree.
-*/ 
- ion-header {
-  --background: linear-gradient(to top right, #ffa000 0%, #ffca28 100%);
-}
-ion-toolbar{
-  --background: linear-gradient(to top right, #ffa000 0%, #ffca28 100%);
-}
-ion-title{
-text-align:center;
-color: White;
-}
-.form-container {
-  text-align: center;
-}
-.btn-menu{
- 
-  color: White;
-}
-.person-icon{
- 
-  color: White;
-}
-.scroll{
-  overflow: scroll;
-  height: 54vh;
-  margin-bottom: 16px;
-}
-.label{
-  font-size: 14px;
-  padding: 8px 0px;
-}
-.input {
-      background-color: rgb(240, 240, 240);
-      border: 1px solid rgb(210, 210, 210);
-      border-radius: 5px;
-      font-size: 1.2em !important;
-      --padding-start:8px;
-    
+@import "../../../../theme/variables.scss";
+
+.discover{
+  &__nopadding{
+      padding: 0px;
   }
-.item-1{
-      --padding-start:0px;
-      --padding-end: 0px;
-      --inner-padding-end:0px !important;
-      padding-inline-end: 0px!important;
-      -webkit-padding-end: 0 !important;
-  padding-inline-end: 0 !important;
-     
+  &__welcome{
+      text-align: center;
+      height: 40vh;
+      background-image: url("/assets/imgs/app/tacos.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      color: white;
+      &--message{
+          font-size: 6vw;
+          font-weight: 900;
+          text-transform: uppercase;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 3px;
+      }
+      &--logo{
+          @include background-2x('/assets/imgs/app/trompo' ,'png', contain , contain, center center, no-repeat);
+          height: 20vw;
+          margin-top: 5vw;
+          margin-bottom:2%;
+      }
+      &--laruta{
+          text-indent: -6000px;
+          margin:7px;
+          height:8vw;
+          @include background-2x('/assets/imgs/app/garnacha' ,'png', contain , contain, center center, no-repeat);
+      }
+      p{
+          border-top:2px solid white;
+          font-size: 3vw;
+          text-align: center;
+          padding: 10px;
+          display: block;
+          width: 50%;
+          margin: 0vh auto 0 auto;
+      }
+  }
+  .lalo{
+      background: #ef8a2e;
+      color:#5d320b;
+      text-transform: uppercase;
+      height: 170px;
+      margin-top: 60px;
+      margin-bottom: 22px;
+      img.bio{
+          position: absolute;
+          margin-top: -35px;
+          height: 200px;
+          right: 0px;
+      }
+      
+      a.logo{
+          position: absolute;
+          width: 205px;
+          display: block;
+          margin-top: -10px;
+          margin-left: 0px;
+      }
+      
+      a.youtube{
+          background-color: transparent;
+          background-image: url(/assets/img/youtube.png);
+          background-repeat: no-repeat;
+          background-position: center center;
+          display: block;
+          height: 44px;
+          width: 20px;
+          margin: 125px 0px 0px 87px;
+          background-size: contain;
+          border: none;
+      }
+  }
+  .social{
+      &__icon{
+          font-size: 40px;
+          margin:10px 20px;
+      }
+  }
 }
-.item-3{
- --background: #f0f0f0;
- --padding-start:8px;
- --padding-end: 0px;
- --inner-padding-end:0px !important;
- padding-inline-end: 0px!important;
- -webkit-padding-end: 0 !important;
-padding-inline-end: 0 !important;
+//IPAD
+@media screen and (min-width : 700px) and(max-width: 800px) {
+  .discover {
+      &__welcome {
+          height: 50vh;
+          &--logo{
+              margin-top: 4vh;
+              height: 15vh;
+          }
+          &--message{
+              font-size:4vw;
+          }
+          &--laruta{
+              height: 6vw;
+          }
+          p{
+              font-size:3.5vw;
+              width: 90%;
+              margin-top: 4vh;
+          }
+      }
+  }
 }
-
-.card{
-  width: 100%;
-}
-.lableTag{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-.clearFilter{
-  --background:#f0f0f0;
-}
-.hide-filter{
-  display: none;
-}
-.btn-add{
-  background: #ffc422;
-  color: black;
-}
-.add{
-  background: #FFA000;
-  
-}
-.label-2{
-  padding: 4px 0px;
-  width: 40vw;
-  white-space: nowrap; 
-overflow: hidden;
-text-overflow: ellipsis;
-}
-.edit{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-.btn-color{
-
-  color: #FFA000
-}
-.btn-light{
-background: #FFCA28;
-color: black;
-}
-.spinner{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 15vh;
-}
-.align{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-.required{
-  color: red;
-  font-size: 10px;
+//DESKTOP
+@media screen and (min-width : 780px) {
+  .discover {
+      &__welcome {
+          height: 55vh;
+          &--logo{
+              margin-top: 4vh;
+              height: 15vh;
+          }
+          &--message{
+              font-size:3vw;
+          }
+          &--laruta{
+              height: 4vw;
+          }
+          p{
+              font-size:1.5vw;
+          }
+      }
+  }
 }

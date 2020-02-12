@@ -1,98 +1,21 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-menu-button color="undefined" class="btn-menu"></ion-menu-button>
-      </ion-buttons>
-    <ion-title>
-      Data operation
-    </ion-title>
-    <ion-buttons slot="end">
-        <ion-select [interfaceOptions]="customAlertOptions" interface="alert" class="hide-filter" value="Filter"   name="tag" [(ngModel)]="filtertag" (ionChange)="headTagValue(filtertag)" id="filterSelect">
-            <ion-icon name="funnel" class="person-icon"></ion-icon>
-            <ion-select-option value="Security">Security</ion-select-option>
-            <ion-select-option value="Development">Development</ion-select-option>
-            <ion-select-option value="CRUD">CRUD</ion-select-option>
-            <ion-select-option value="Storge">Storge</ion-select-option>
-        </ion-select>
-      <ion-button (click)="alertFilter()">
-        <ion-icon name="funnel" class="person-icon"></ion-icon>
-      </ion-button>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding #content>
-  <div class="form-container">
-    <ion-text color="medium">
-        This page demonstrates CRUD (create, read, update, delete) operations on Firebase Firestore.
-    </ion-text>
-    <form>
-      <ion-item lines="none" class="item-1" margin-bottom >
-        <ion-label position="stacked" class="label"> <strong class="align">Question <ion-icon name="medical" class="required"></ion-icon>: </strong></ion-label>
-        <ion-input (ionFocus)="scroll()" [(ngModel)]="newFaq.question" name="question" placeholder="Enter your question here?" class="input" clear-input="true" ></ion-input>
-      </ion-item>
-      <ion-item lines="none" class="item-1" margin-bottom>
-        <ion-label position="stacked" class="label" no-margin><strong class="align">Answer <ion-icon name="medical" class="required"></ion-icon>: </strong></ion-label>
-        <ion-textarea class="input" (ionFocus)="scroll()" [(ngModel)]="newFaq.answer" rows="2" cols="20" placeholder="Enter your answer here..." name="answer" clear-input="true"></ion-textarea>
-      </ion-item>
-      <ion-item class="item-3" lines="none" margin-bottom>
-          <ion-label class="lableTag">Choose Tag <ion-icon name="medical" class="required"></ion-icon></ion-label>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" name="tag" (ionFocus)="scroll()" [(ngModel)]="newFaq.tag" (ionChange)="tagValue(newFaq.tag)">
-            <ion-select-option value="Security">Security</ion-select-option>
-            <ion-select-option value="Development">Development</ion-select-option>
-            <ion-select-option value="CRUD">CRUD</ion-select-option>
-            <ion-select-option value="Storge">Storge</ion-select-option>
-          </ion-select>
-        </ion-item>
-      <ion-button *ngIf="!isUpdate" color="primary" (click)="addQuestionToDB()" expand="block" >Add question</ion-button>
-      <ion-row *ngIf="isUpdate">
-        <ion-col>
-          <ion-button color="primary" (click)="updateQuestion()" expand="block">Update</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button fill="outline" color="primary" (click)="cancelUpdate()" expand="block">cancel</ion-button>
-        </ion-col>
-      </ion-row>
-    </form>
-  </div>
-  <ion-item  class="item-4">
-    <ion-label>
-      {{filtertag ? filtertag + ' Data' : 'All Data'}}
-    </ion-label>
-    <ion-icon *ngIf="filtertag" name="close" (click)="filtertag = undefined" slot="end"></ion-icon>
-  </ion-item>
-  <div *ngIf="!questionList" class="spinner">
-      <ion-spinner name="circles" ></ion-spinner>
-  </div>
-  <div class="scroll borderb" scrolly="true" margin-top>
-    <ion-grid class="scrollContent">
-      <ion-row>
-        <ion-card class="card" no-margin>
-          <ion-card-content no-padding>
-            <ion-grid no-padding>
-              <ion-row *ngFor="let i of questionList | filter:filtertag " >
-
-                <ion-col size="8">
-                    <ion-item lines="none" class="item-2"> 
-                        <div>
-                            <ion-label class="label-2">
-                                <h3>{{i.question}}</h3>
-                              </ion-label>
-                              <ion-label class="label-2">
-                                <p>{{i.answer}}</p>
-                              </ion-label>
-                        </div>
-                        </ion-item>
-                </ion-col>
-                <ion-col size="4" class="edit">
-                    <ion-button color="primary" (click)="editQuestion(i.id)"><ion-icon name="create"></ion-icon></ion-button>
-                    <ion-button color="danger" (click)="deleteQuestion(i.id)"><ion-icon name="trash"></ion-icon></ion-button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card-content>
-        </ion-card>
-      </ion-row>
-    </ion-grid>
-  </div>
+<ion-content class="discover">
+  <ion-grid class="discover__nopadding">
+    <ion-row class="discover__welcome">
+      <ion-col size="12">
+        <div class="discover__welcome--margin ion-hide-sm-down"></div>
+        <div class="discover__welcome--logo"></div>
+        <h2 class="discover__welcome--message">Welcome to</h2>
+        <h1 class="discover__welcome--laruta">La Ruta de la Garnacha</h1>
+        <p>Your guide for the best food places in the city. <br/>Join us!</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

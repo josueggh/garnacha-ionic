@@ -9,6 +9,15 @@
  ion-content{
     --ion-background-color:#F8F8F8;
 }
+.user-details-wrapper{
+    margin-top:10px;
+}
+.social-info-wrapper{
+    color:white;
+}
+.social__icon{
+    --ion-color-base: white !important;
+}
 .version{
     margin: 0px 0px 0px 10px;
     color: #989aa2;
@@ -25,10 +34,12 @@
     font-size: 14px;
 }
 ion-header {
-    --background: linear-gradient(to right, #f57c00 14%, #ffca00 96%);;
+    --background: #ef8a2e;
+    color:white;
 }
 ion-toolbar{
-    --background: linear-gradient(to right, #f57c00 14%, #ffca00 96%);;
+    --background: #ef8a2e;
+    color:white;
 }
 ion-title{
     color: white;

@@ -147,3 +147,32 @@ html.md {
   --background:#f53d3d;
   background:#f53d3d
 }
+
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin background-2x($path, $ext: "png", $w: auto, $h: auto, $pos: left top, $repeat: no-repeat) {
+  $at1x_path: "#{$path}.#{$ext}";
+  $at2x_path: "#{$path}@2x.#{$ext}";
+
+  $size : "#{$w} #{$h}";
+  @if $w == 'contain' {
+    $size : contain;
+  }
+
+  background-image: url("#{$at1x_path}");
+  background-size: $size;
+  background-position: $pos;
+  background-repeat: $repeat;
+
+  @media all and (-webkit-min-device-pixel-ratio : 1.5),
+  all and (-o-min-device-pixel-ratio: 3/2),
+  all and (min--moz-device-pixel-ratio: 1.5),
+  all and (min-device-pixel-ratio: 1.5) {
+    background-image: url("#{$at2x_path}");
+  }
+}
