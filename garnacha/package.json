@@ -62,6 +62,7 @@
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
     "firebase": "^5.11.1",
+    "geofirex": "0.0.6",
     "json-formatter-js": "^2.2.1",
     "rxjs": "~6.3.3",
     "twitter-connect-plugin": "^0.6.0",

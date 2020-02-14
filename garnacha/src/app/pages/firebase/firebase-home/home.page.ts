@@ -27,7 +27,6 @@ export interface FAQDto {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  @ViewChild('content') content: IonContent
   public questionList: Array<FAQDto>;
   public newFaq: FAQDto;
   public isUpdate: boolean;
@@ -51,9 +50,12 @@ export class HomePage {
      // this.businessServ.getRandom(2).subscribe(businessList => {
      //  console.log(businessList)
      // });
-      this.businessServ.getByTag("Zonas Godin", {field: 'rate', order:'desc'}).subscribe(businessList => {
-      console.log(businessList)
-     });
+     // this.businessServ.getByTag("Zonas Godin", {field: 'rate', order:'desc'}).subscribe(businessList => {
+    //  console.log(businessList)
+    // });
+    //this.businessServ.getByLocation(19.3676494,-99.1647014).subscribe(businessList =>{
+    //  console.log(businessList);
+    //})
     // this.util.userid.subscribe(data => {
 
     //   this.uid = data;
@@ -69,11 +71,7 @@ export class HomePage {
   ionViewDidEnter() {
     this.menuCtrl.enable(true, 'start');
     this.menuCtrl.enable(true, 'end');
-    //this.content.scrollToTop(300);
 
-  }
-  scroll() {
-    //this.content.scrollToTop(300);
   }
 
 }

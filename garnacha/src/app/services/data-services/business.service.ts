@@ -3,6 +3,9 @@ import { FirestoreService,FirestoreQuery } from '../firestore/firestore.service'
 import { Business } from '../../models/business.model';
 import { Observable } from 'rxjs';
 import { BaseDataService } from './base-data.service';
+import * as geofirex from 'geofirex';
+import * as firebase from 'firebase/app';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +13,7 @@ import { BaseDataService } from './base-data.service';
 export class BusinessService extends BaseDataService <Business>{
   //ACTIVE_QUERY: any = {field: 'active', operation:'==', key: 1};
   ACTIVE_QUERY: any = null;
+  geo = geofirex.init(firebase);
 
   constructor(private firestore: FirestoreService) {
     super('business');
@@ -39,7 +43,7 @@ export class BusinessService extends BaseDataService <Business>{
     return this.firestore.runQuery<Business>(this.baseCollection, query);
   }
 
-  public getFirstOrderBy(orderBy: any, limit:number =20) : Observable<Business[]> {
+  public getFirstOrderBy(orderBy: any, limit:number =20): Observable<Business[]> {
     const query :FirestoreQuery = {
       orderBy,
       limit,
@@ -66,6 +70,16 @@ export class BusinessService extends BaseDataService <Business>{
     return this.firestore.runQuery<Business>(this.baseCollection, query);
   }
 
+  public getByLocation(lat: number, lng: number , kilometers = 3){
+    const byLocation = new Observable( observer => {
+      const collection = this.geo.collection(this.baseCollection);
+      const center = this.geo.point(lat, lng);
+      collection.within(center, kilometers, 'geo').subscribe( response => {
+        observer.next(response);
+      });
+    });
+    return byLocation;
+  }
   
  
 }
