@@ -55,9 +55,11 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.firebaseAnalytics.logEvent('page_view', { page: 'dashboard' })
-        .then((res: any) => {})
-        .catch((error: any) => console.error(error));
+      if( this.platform.is('ios') || this.platform.is('android') ){
+        this.firebaseAnalytics.logEvent('page_view', { page: 'dashboard' })
+          .then((res: any) => {})
+          .catch((error: any) => console.error(error));
+      }
     });
   }
 

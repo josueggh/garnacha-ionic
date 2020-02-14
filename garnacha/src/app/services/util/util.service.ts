@@ -28,7 +28,7 @@ export class UtilService {
 
   getUserId(){
     this.fireAuth.auth.onAuthStateChanged(user => {
-      if(user.uid){
+      if(user && user.uid){
         this.userid.next(user.uid);
       }
   })

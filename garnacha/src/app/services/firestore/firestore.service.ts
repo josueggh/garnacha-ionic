@@ -29,7 +29,9 @@ export class FirestoreService {
     }
 
     public get<T extends BaseDatabaseModel>(collection: string): Observable<T[]> {
-        return this.store.collection<T>(collection, ref => ref.where('uid', '==', `${this.userid}`)).valueChanges();
+        return this.store.collection<T>(collection, ref => {
+            return ref.where('uid', '==', `${this.userid}`)
+        }).valueChanges();
     }
 
     public getOne<T extends BaseDatabaseModel>(collection: string, id: string): Observable<T> {
@@ -40,8 +42,27 @@ export class FirestoreService {
         return this.store.doc<T>(`${collection}/${id}`).update(document);
     }
 
-    public runQuery<T extends BaseDatabaseModel>(collection: string, query: FirestoreQuery): Observable<T[]> {
-        return this.store.collection<T>(collection, ref => ref.where(query.field, query.operation, query.searchKey)).valueChanges();
+    public runQuery<T extends BaseDatabaseModel>(collection: string, query?: FirestoreQuery): Observable<T[]> {
+        
+        console.log(query);
+        if(!query){
+            return this.store.collection<T>(collection, ref => ref).valueChanges();
+        }
+
+        return this.store.collection<T>(collection, ref => {
+            if(query.limit){
+                ref = ref.limit(query.limit);
+            }
+            if(query.orderBy){
+                ref = ref.orderBy(query.orderBy.field, query.orderBy.order);
+            }
+
+            if(query.where){
+                ref = ref.where(query.where.field, query.where.operation, query.where.key);
+            }
+            
+            return ref;
+        }).valueChanges();
     }
 
     public delete<T extends BaseDatabaseModel>(collection: string, id: string): Promise<any> {
@@ -63,7 +84,9 @@ export class FirestoreService {
 }
 
 export interface FirestoreQuery {
-    field: string,
-    operation: firebase.firestore.WhereFilterOp
-    searchKey: string
+    operation?: firebase.firestore.WhereFilterOp
+    searchKey?: string
+    orderBy?: {field: string, order: any},
+    where?: { field : string, operation: any, key: any}
+    limit?: number
 }

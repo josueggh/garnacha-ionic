@@ -13,7 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProfilePage } from './Profile.page';
+import { ProfilePage } from './profile.page';
 import { SharableModule } from '../../../components/sharable.module';
 import { LanguageService } from '../../../language/language.service';
 import { TranslateModule } from '@ngx-translate/core';
