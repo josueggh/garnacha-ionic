@@ -80,6 +80,14 @@ export class BusinessService extends BaseDataService <Business>{
     });
     return byLocation;
   }
+
+  public getDetails(slug: string){
+    const query :FirestoreQuery = {
+      where : { field :'slug', operation:'==', key: slug},
+      limit : 1,
+    };
+    return this.firestore.runQuery<Business>(this.baseCollection, query);
+  }
   
  
 }
