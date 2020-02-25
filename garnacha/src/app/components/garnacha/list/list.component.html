@@ -1,0 +1,55 @@
+<h3> <app-text-shell [data]="list.name"></app-text-shell></h3>
+<ion-slides pager [options]="slidesOpts">
+  <ion-slide  *ngFor="let item of items;">
+    <div class="listing-item" >
+  <div class="cover-wrapper" >
+    <a class="cover-anchor" >
+      <app-image-shell class="cover-image add-overlay" animation="spinner" [mode]="'cover'" [src]="getMainPhoto(item)">
+        <app-aspect-ratio [ratio]="{w:35, h:15}">
+          <div class="cover-icon-wrapper">
+            <app-aspect-ratio [ratio]="{w: 24, h: 12}">
+              <app-image-shell class="item-icon" [src]="getCategoryIcon(item)"></app-image-shell>
+            </app-aspect-ratio>
+          </div>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </a>
+  </div>
+  <ion-row class="info-row">
+    <ion-col class="description-col">
+      <ion-row class="description-wrapper">
+        <h3 class="item-name">
+          <a class="name-anchor" >
+            <app-text-shell [data]="item.name"></app-text-shell>
+          </a>
+        </h3>
+        <p class="item-address">
+          <app-text-shell [data]="item.location.city"></app-text-shell>
+          <app-text-shell [data]="item.location.state"></app-text-shell>
+        </p>
+        <ion-row class="item-tags">
+          <ion-col class="tag-wrapper" *ngFor="let tag of (item.categories.length ? item.categories : ['Uncategorized']) | slice:0:3; let i=index">
+            <span class="item-tag">
+              <app-text-shell [data]="tag"></app-text-shell>
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+    <ion-col class="stats-col" size="2">
+      <div class="item-price-range">
+        <span class="price" *ngFor="let price of [].constructor(item.price)">$</span>
+        <span class="no-price" *ngFor="let price of [].constructor(5 - (item.price || 1))">$</span>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="pictures-row" >
+    <ion-col class="picture-wrapper" size="2" *ngFor="let picture of getPhotos(item); let i = index">
+      <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+        <app-image-shell class="picture-image" [src]="picture" [alt]="'food image'"></app-image-shell>
+      </app-aspect-ratio>
+    </ion-col>
+  </ion-row>
+  </div>
+</ion-slide>
+</ion-slides>

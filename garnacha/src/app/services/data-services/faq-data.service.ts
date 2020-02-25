@@ -24,6 +24,10 @@ export class FAQDataService extends BaseDataService<FAQDto> {
         return this.firestore.get<FAQDto>(this.baseCollection);
     }
 
+    public getAll(){
+        
+    }
+
     public getOne(id: string): Observable<FAQDto> {
         return this.firestore.getOne<FAQDto>(this.baseCollection, id);
     }

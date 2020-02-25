@@ -14,12 +14,14 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { FilterPipe } from '../../../filter.pipe';
+import { SharableModule } from '../../../components/sharable.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharableModule,
     RouterModule.forChild([
       {
         path: '',

@@ -14,6 +14,9 @@ import { UtilService } from '../../../services/util/util.service';
 import { MenuController, IonContent } from '@ionic/angular';
 import { FirestoreService } from '../../../services/firestore/firestore.service';
 import { BusinessService } from 'src/app/services/data-services/business.service';
+import { ListService } from 'src/app/services/data-services/list.service';
+import { List } from '../../../models/list.model'
+
 export interface FAQDto {
   question: string,
   id: string;
@@ -32,14 +35,20 @@ export class HomePage {
   public isUpdate: boolean;
   public uid: string;
   public filtertag: string;
+  public lists: Array<List> = [];
   customAlertOptions: any = {
     header: 'Filter',
   };
   constructor(private faqDataServ: FAQDataService,
     private businessServ : BusinessService,
     private firestoreServ: FirestoreService, 
-    private authService: AuthenticationService, private util: UtilService, private menuCtrl: MenuController) {
-      
+    private authService: AuthenticationService, 
+    private util: UtilService, 
+    private listService: ListService,
+    private menuCtrl: MenuController) {
+      this.listService.getAll().subscribe( lists => {
+        this.lists = lists;
+      })
      // this.businessServ.getAll().subscribe(businessList => {
      //   console.log(businessList);
      // });

@@ -16,6 +16,7 @@ import { GoogleLoginComponent } from './google-login/google-login.component';
 import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
 import { ImageShellComponent } from './image-shell/image-shell.component';
 import { TextShellComponent } from './text-shell/text-shell.component';
+import { ListComponent} from './garnacha/list/list.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { TextShellComponent } from './text-shell/text-shell.component';
         GoogleLoginComponent,
         AspectRatioComponent,
         ImageShellComponent,
-        TextShellComponent
+        TextShellComponent,
+        ListComponent,
     ],
     imports: [
         CommonModule,
@@ -33,11 +35,12 @@ import { TextShellComponent } from './text-shell/text-shell.component';
     ],
     exports: [
         FacebookLoginComponent,
-         TwitterLoginComponent, 
-         GoogleLoginComponent,
-         AspectRatioComponent,
-         ImageShellComponent,
-        TextShellComponent
+        TwitterLoginComponent, 
+        GoogleLoginComponent,
+        AspectRatioComponent,
+        ImageShellComponent,
+        TextShellComponent,
+        ListComponent,
     ]
 })
 export class SharableModule { }

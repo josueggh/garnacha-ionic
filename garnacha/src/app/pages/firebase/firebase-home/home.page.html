@@ -18,4 +18,12 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-grid>
+    <ion-row *ngFor="let list of lists">
+      <ion-col>
+        <garnacha-list [list]="list"></garnacha-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
