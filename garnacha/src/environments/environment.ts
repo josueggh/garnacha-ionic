@@ -12,6 +12,7 @@
 
 export const environment = {
   production: false,
+  googleMapsAPIKey: 'AIzaSyBqWvVBuWNvGUhM2KE4u2fp_XepFxE0XMI',
   config : {
     apiKey: "AIzaSyDwUadzi3Oh9iOfWI8AqcOt0jeZRXgSpkA",
     authDomain: "ruta-de-la-garnacha-1.firebaseapp.com",

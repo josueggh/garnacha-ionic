@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { List } from '../../../models/list.model';
 import { Business } from '../../../models/business.model';
 import { ListService} from '../../../services/data-services/list.service';
+import { ImageService} from '../../../services/util/image.service';
 import { Platform } from '@ionic/angular';
 
 @Component({
@@ -18,7 +19,8 @@ export class ListComponent implements OnInit {
   public slidesOpts;
   constructor(
     private listService : ListService,
-    private platform: Platform
+    private platform: Platform, 
+    private imageService : ImageService
     ) {
     
     let  slides = 2.1;
@@ -42,6 +44,10 @@ export class ListComponent implements OnInit {
     };
   }
 
+  public resizePicture(path: string, size: number = 50){
+    return this.imageService.resize(path, size);
+  }
+
   private customProgressBar(current: number, total: number): string {
     const ratio: number = current / total;
 
@@ -63,7 +69,7 @@ export class ListComponent implements OnInit {
 
   getMainPhoto(item: Business){
     if(item.photos && item.photos.length){
-      return item.photos[0];
+      return this.imageService.resize(item.photos[0], 200);
     }
     return '/assets/imgs/default.jpg'
   }
@@ -79,7 +85,6 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.listService.getDetails(this.list).subscribe( data => {
       this.items = data;
-      //console.log(this.items);
     });
   }
 

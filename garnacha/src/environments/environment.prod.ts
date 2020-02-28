@@ -8,6 +8,7 @@
 */ 
 export const environment = {
   production: true,
+  googleMapsAPIKey: 'AIzaSyBqWvVBuWNvGUhM2KE4u2fp_XepFxE0XMI',
   config : {
     apiKey: 'AIzaSyAnotfaQmw5cJMJxQX-04fQ4YksZZWRDjQ',
     authDomain: 'ionic4fullapp.firebaseapp.com',

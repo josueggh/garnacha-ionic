@@ -40,6 +40,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { FirebaseCrashlytics } from '@ionic-native/firebase-crashlytics/ngx';
 
 import { SharableModule } from './components/sharable.module';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -74,6 +75,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FAQDataService,
     FirebaseAnalytics,
     StorageService,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AuthenticationService,
     UtilService,

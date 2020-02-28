@@ -46,7 +46,7 @@
   <ion-row class="pictures-row" >
     <ion-col class="picture-wrapper" size="2" *ngFor="let picture of getPhotos(item); let i = index">
       <app-aspect-ratio [ratio]="{w: 1, h: 1}">
-        <app-image-shell class="picture-image" [src]="picture" [alt]="'food image'"></app-image-shell>
+        <app-image-shell class="picture-image" [src]="resizePicture(picture)" [alt]="'food image'"></app-image-shell>
       </app-aspect-ratio>
     </ion-col>
   </ion-row>

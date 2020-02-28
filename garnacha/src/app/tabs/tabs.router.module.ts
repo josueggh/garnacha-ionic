@@ -31,6 +31,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'map',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/firebase/map/map.module#MapPageModule'
+          }
+        ]
+      },
+      {
         path: 'profile',
         children: [
           {

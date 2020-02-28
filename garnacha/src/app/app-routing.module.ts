@@ -16,11 +16,12 @@ const routes: Routes = [
   //{ path: 'home', loadChildren: './pages/firebase/firebase-home/home.module#HomePageModule' , canActivate: [GuardsService] },
   { path: 'login', loadChildren: './pages/firebase/login/login.module#LoginPageModule' },
   //{ path: 'ad-mob', loadChildren: './ad-mob/ad-mob.module#AdMobPageModule' , canActivate: [GuardsService]},
-  { path: 'app', loadChildren: './tabs/tabs.module#TabsPageModule'},
+ // { path: 'app', loadChildren: './tabs/tabs.module#TabsPageModule'},
   //{ path: 'images', loadChildren: './pages/firebase/image-upload/image-upload.module#ImageUploadPageModule' , canActivate: [GuardsService] },
   //{ path: 'crash-lytics', loadChildren: './crash-lytics/crash-lytics.module#CrashLyticsPageModule' },
   //{ path: 'analytics', loadChildren: './analytics/analytics.module#AnalyticsPageModule' },
-  { path: 'app', loadChildren: './tabs/tabs.module#TabsPageModule' }
+  { path: 'app', loadChildren: './tabs/tabs.module#TabsPageModule' },  { path: 'map', loadChildren: './pages/firebase/map/map.module#MapPageModule' }
+
 ];
 
 @NgModule({

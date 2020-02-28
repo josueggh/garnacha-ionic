@@ -5,7 +5,7 @@
 *
 * This source code is licensed as per the terms found in the
 * LICENSE.md file in the root directory of this source tree.
-*/ 
+*/
 import { BaseDatabaseModel } from 'src/app/models/base-dto.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
@@ -43,21 +43,24 @@ export class FirestoreService {
     }
 
     public runQuery<T extends BaseDatabaseModel>(collection: string, query?: FirestoreQuery): Observable<T[]> {
-        
-        console.log(query);
+        console.log("QUERY",query);
         if(!query){
             return this.store.collection<T>(collection, ref => ref).valueChanges();
         }
 
         return this.store.collection<T>(collection, ref => {
             if(query.limit){
-                ref = ref.limit(query.limit);
+                // @ts-ignore
+                ref =  ref.limit(query.limit);
             }
+
             if(query.orderBy){
+                // @ts-ignore
                 ref = ref.orderBy(query.orderBy.field, query.orderBy.order);
             }
 
             if(query.where){
+                // @ts-ignore
                 ref = ref.where(query.where.field, query.where.operation, query.where.key);
             }
             

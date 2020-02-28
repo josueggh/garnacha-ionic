@@ -17,6 +17,7 @@ import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
 import { ImageShellComponent } from './image-shell/image-shell.component';
 import { TextShellComponent } from './text-shell/text-shell.component';
 import { ListComponent} from './garnacha/list/list.component';
+import { MapComponent} from './garnacha/map/map.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { ListComponent} from './garnacha/list/list.component';
         ImageShellComponent,
         TextShellComponent,
         ListComponent,
+        MapComponent,
     ],
     imports: [
         CommonModule,
@@ -41,6 +43,7 @@ import { ListComponent} from './garnacha/list/list.component';
         ImageShellComponent,
         TextShellComponent,
         ListComponent,
+        MapComponent,
     ]
 })
 export class SharableModule { }
