@@ -43,7 +43,6 @@ export class FirestoreService {
     }
 
     public runQuery<T extends BaseDatabaseModel>(collection: string, query?: FirestoreQuery): Observable<T[]> {
-        console.log("QUERY",query);
         if(!query){
             return this.store.collection<T>(collection, ref => ref).valueChanges();
         }

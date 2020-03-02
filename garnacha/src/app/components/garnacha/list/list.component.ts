@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   @Input() list: List;
   public items;
   public slidesOpts;
+  private defaultImage = 'https://storage.googleapis.com/ruta-de-la-garnacha-1.appspot.com/default/default.jpg';
   constructor(
     private listService : ListService,
     private platform: Platform, 
@@ -71,7 +72,7 @@ export class ListComponent implements OnInit {
     if(item.photos && item.photos.length){
       return this.imageService.resize(item.photos[0], 200);
     }
-    return '/assets/imgs/default.jpg'
+    return this.imageService.resize(this.defaultImage, 200);
   }
 
   getPhotos(item){

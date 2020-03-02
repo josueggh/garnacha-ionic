@@ -9,12 +9,21 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class MapPage implements OnInit {
 
+  center = {
+    lat: 0,
+    lng: 0,
+  };
+
   constructor(
     private platform: Platform,
     private geolocation: Geolocation,
   ) { }
 
   ngOnInit() {
+  }
+
+  async onSelect(info) {
+    console.log(info);
   }
 
 }
