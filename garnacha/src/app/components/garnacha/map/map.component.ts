@@ -3,6 +3,7 @@ import { environment } from '../../../../environments/environment';
 import { ListService } from '../../../services/data-services/list.service';
 import { makeRe } from 'minimatch';
 import { EventEmitter } from '@angular/core';
+import { List } from '../../../models/list.model'
 
 declare var google;
 
@@ -17,7 +18,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   @Input() center;
   @Output() selection = new EventEmitter();
 
-  markers = [];
+  markers;
   map;
   googleMaps;
   mainMaker;
@@ -32,7 +33,17 @@ export class MapComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   getMarkers(center){
-    return [];
+    const list: List = { 
+      active: true,
+      type: 'bylocation',
+      icon: 'globe',
+      name : 'Near you',
+      id: 'bylocation',
+      lat: center.lat,
+      lng: center.lng
+    };
+    //console.log(list);
+    return this.listService.getDetails(list);
   }
   /*getMarkers(center) {
     const list = {
@@ -64,13 +75,13 @@ export class MapComponent implements OnInit, AfterViewInit {
       .then(googleMaps => {
 
         this.mainMaker = {
-          url: '/assets/img/marker.png',
+          url: '/assets/imgs/marker.png',
           size: new google.maps.Size(28, 28),
           scaledSize: new google.maps.Size(28, 28)
         };
 
         this.currentMaker = {
-          url: '/assets/img/marker_current.png',
+          url: '/assets/imgs/marker_current.png',
           size: new google.maps.Size(28, 28),
           scaledSize: new google.maps.Size(28, 28)
         };
@@ -111,6 +122,9 @@ export class MapComponent implements OnInit, AfterViewInit {
         });
 
         this.googleMaps.event.addListenerOnce(this.map, 'idle', async () => {
+          if(!this.map){
+            return false;
+          }
           const currentLocation = {
             location: {
               lat: this.map.center.lat(),
@@ -120,10 +134,14 @@ export class MapComponent implements OnInit, AfterViewInit {
             icon: this.currentMaker,
             current: true
           };
-          this.markers = await this.getMarkers(this.center);
-          this.markers.push(currentLocation);
-          renderMarkers();
-          this.renderer.addClass(mapEl, 'visible');
+
+          this.getMarkers(this.center).subscribe( markers => {
+            this.markers = markers;
+            this.markers.push(currentLocation);
+            renderMarkers();
+            this.renderer.addClass(mapEl, 'visible');
+          });
+          
         });
 
         this.googleMaps.event.addListener(this.map, 'dragend', async () => {
@@ -131,8 +149,10 @@ export class MapComponent implements OnInit, AfterViewInit {
             lat: this.map.center.lat(),
             lng: this.map.center.lng()
           };
-          this.markers = await this.getMarkers(recenter);
-          renderMarkers();
+          this.getMarkers(recenter).subscribe( markers => {
+            this.markers = markers;
+            renderMarkers();
+          });
         });
       })
       .catch(err => {

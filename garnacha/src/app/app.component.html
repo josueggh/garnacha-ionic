@@ -33,6 +33,10 @@
       <ion-content>
         <ion-list>
           <ion-list-header>Get involved</ion-list-header>
+          <ion-item href="https://www.kichink.com/stores/larutadelagarnacha/">
+            <ion-icon slot="start" name="basket"></ion-icon>
+            <ion-label>Our Store</ion-label>
+          </ion-item>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item [routerLink]="p.url">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>

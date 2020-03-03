@@ -24,7 +24,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 export class AppComponent {
 
   public appPages = [
-    { title: 'Our Store', url: 'https://www.kichink.com/stores/larutadelagarnacha/', icon: 'basket' },
+   // { title: 'Our Store', url: 'https://www.kichink.com/stores/larutadelagarnacha/', icon: 'basket' },
     { title: 'Rewards', url: '/rewards', icon: 'trophy' },
     { title: 'Youtube', url: '/ad-mob', icon: 'logo-youtube' },
     { title: 'Contact', url: '/contact', icon: 'paper-plane' },

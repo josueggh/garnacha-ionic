@@ -9,10 +9,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class MapPage implements OnInit {
 
-  center = {
-    lat: 0,
-    lng: 0,
-  };
+  center;
 
   constructor(
     private platform: Platform,
@@ -20,7 +17,17 @@ export class MapPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.platform.ready().then( ()=>{
+      this.geolocation.getCurrentPosition().then( locationResponse => {
+        this.center  = {
+          lat : locationResponse.coords.latitude,
+          lng: locationResponse.coords.longitude
+        };
+        console.log(this.center);
+      })
+    });
   }
+
 
   async onSelect(info) {
     console.log(info);

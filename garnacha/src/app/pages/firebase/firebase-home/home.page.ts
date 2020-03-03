@@ -72,10 +72,6 @@ export class HomePage implements OnInit{
           lat: locationResponse.coords.latitude,
           lng: locationResponse.coords.longitude
         };
-//        console.log(location , locationResponse.coords);
-        // this.listService.getDetails(location).subscribe( list => {
-        //   this.geoList = list;
-        // })
       });
     });
   }
