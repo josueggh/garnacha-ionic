@@ -17,7 +17,7 @@ export class ImageService {
     }
 
     if(size<=200){
-      quality = 30;
+      quality = 20;
     }
 
     return `https://images.weserv.nl/?url=${path}&w=${size}&h=${size}&q=${quality}&fit=cover&a=attention`;

@@ -11,6 +11,12 @@
     //   opacity: 0.8;
     // }
   }
+
+  .spinner{
+    color: #ebbb00;
+    width:100%;
+    margin:0 auto;
+  }
   
   app-image-shell.cover-image {
     --image-shell-border-radius: var(--app-fair-radius);

@@ -70,7 +70,7 @@ export class BusinessService extends BaseDataService <Business>{
     return this.firestore.runQuery<Business>(this.baseCollection, query);
   }
 
-  public getByLocation(lat: number, lng: number , kilometers = 3){
+  public getByLocation(lat: number, lng: number , kilometers = 2.5){
     const byLocation = new Observable( observer => {
       const collection = this.geo.collection(this.baseCollection);
       const center = this.geo.point(lat, lng);

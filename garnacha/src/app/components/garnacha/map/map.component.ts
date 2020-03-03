@@ -13,7 +13,6 @@ declare var google;
 })
 
 export class MapComponent implements OnInit, AfterViewInit {
-  //@ViewChild('map', {'static': false}) mapElementRef;
   @ViewChild('map') mapElementRef;
   @Input() center;
   @Output() selection = new EventEmitter();

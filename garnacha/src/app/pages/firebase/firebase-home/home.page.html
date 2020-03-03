@@ -20,6 +20,11 @@
   </ion-grid>
 
   <ion-grid>
+    <ion-row *ngIf="geoList">
+      <ion-col>
+        <garnacha-list [list]="geoList"></garnacha-list>
+      </ion-col>
+    </ion-row>
     <ion-row *ngFor="let list of lists">
       <ion-col>
         <garnacha-list [list]="list"></garnacha-list>

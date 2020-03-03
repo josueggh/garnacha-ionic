@@ -1,5 +1,6 @@
 <h3> <app-text-shell [data]="list.name"></app-text-shell></h3>
-<ion-slides pager [options]="slidesOpts">
+<ion-spinner class="spinner" *ngIf="!items"></ion-spinner>
+<ion-slides pager [options]="slidesOpts" *ngIf="list">
   <ion-slide  *ngFor="let item of items;">
     <div class="listing-item" >
   <div class="cover-wrapper" >
@@ -28,7 +29,7 @@
           <app-text-shell [data]="item.location.state"></app-text-shell>
         </p>
         <ion-row class="item-tags">
-          <ion-col class="tag-wrapper" *ngFor="let tag of (item.categories.length ? item.categories : ['Uncategorized']) | slice:0:3; let i=index">
+          <ion-col class="tag-wrapper" *ngFor="let tag of (item.categories.length ? item.categories : ['Uncategorized']) | slice:0:1; let i=index">
             <span class="item-tag">
               <app-text-shell [data]="tag"></app-text-shell>
             </span>
