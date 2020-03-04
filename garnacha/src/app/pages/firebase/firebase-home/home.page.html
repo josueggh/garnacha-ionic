@@ -14,7 +14,7 @@
         <div class="discover__welcome--logo"></div>
         <h2 class="discover__welcome--message">Welcome to</h2>
         <h1 class="discover__welcome--laruta">La Ruta de la Garnacha</h1>
-        <p>Your guide for the best food places in the city. <br/>Join us!</p>
+        <p>Your guide for the best food places in the city. <br />Join us!</p>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -25,10 +25,16 @@
         <garnacha-list [list]="geoList"></garnacha-list>
       </ion-col>
     </ion-row>
-    <ion-row *ngFor="let list of lists">
-      <ion-col>
-        <garnacha-list [list]="list"></garnacha-list>
-      </ion-col>
-    </ion-row>
+
+    <ion-virtual-scroll [items]="lists" approxItemHeight="700px" >
+      <div *virtualItem="let item" itemHeight="540px" >
+        <ion-row style="height:540px;">
+        <ion-col>
+          <garnacha-list [list]="item"></garnacha-list>
+        </ion-col>
+        </ion-row>
+      </div>
+    </ion-virtual-scroll>
   </ion-grid>
+ 
 </ion-content>
