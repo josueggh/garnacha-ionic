@@ -70,9 +70,9 @@ export class ListComponent implements OnInit {
 
   getMainPhoto(item: Business){
     if(item.photos && item.photos.length){
-      return this.imageService.resize(item.photos[0], 200);
+      return this.imageService.resize(item.photos[0], 150);
     }
-    return this.imageService.resize(this.defaultImage, 200);
+    return this.imageService.resize(this.defaultImage, 150);
   }
 
   getPhotos(item){

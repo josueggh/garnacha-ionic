@@ -6,7 +6,7 @@
   <div class="cover-wrapper" >
     <a class="cover-anchor" >
       <app-image-shell class="cover-image add-overlay" animation="spinner" [mode]="'cover'" [src]="getMainPhoto(item)">
-        <app-aspect-ratio [ratio]="{w:35, h:15}">
+        <app-aspect-ratio [ratio]="{w:30, h:30}">
           <div class="cover-icon-wrapper">
             <app-aspect-ratio [ratio]="{w: 24, h: 12}">
               <app-image-shell class="item-icon" [src]="getCategoryIcon(item)"></app-image-shell>
@@ -47,7 +47,7 @@
   <ion-row class="pictures-row" >
     <ion-col class="picture-wrapper" size="2" *ngFor="let picture of getPhotos(item); let i = index">
       <app-aspect-ratio [ratio]="{w: 1, h: 1}">
-        <app-image-shell class="picture-image" [src]="resizePicture(picture)" [alt]="'food image'"></app-image-shell>
+        <app-image-shell class="picture-image" [src]="resizePicture(picture,40)" [alt]="'food image'"></app-image-shell>
       </app-aspect-ratio>
     </ion-col>
   </ion-row>

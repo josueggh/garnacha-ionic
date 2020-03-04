@@ -18,7 +18,7 @@ import { ImageShellComponent } from './image-shell/image-shell.component';
 import { TextShellComponent } from './text-shell/text-shell.component';
 import { ListComponent} from './garnacha/list/list.component';
 import { MapComponent} from './garnacha/map/map.component';
-
+import { ModalComponent} from './modal/modal.component'
 @NgModule({
     declarations: [
         FacebookLoginComponent,

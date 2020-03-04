@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Platform, ModalController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { ModalComponent } from '../../../components/modal/modal.component';
 
 @Component({
   selector: 'app-map',
@@ -14,6 +15,7 @@ export class MapPage implements OnInit {
   constructor(
     private platform: Platform,
     private geolocation: Geolocation,
+    private modalController: ModalController,
   ) { }
 
   ngOnInit() {
@@ -30,7 +32,15 @@ export class MapPage implements OnInit {
 
 
   async onSelect(info) {
-    console.log(info);
+    const modal = await this.modalController.create({
+      component: ModalComponent,
+      cssClass: 'my-custom-modal-css',
+      componentProps: {
+        'info': info,
+        'current': this
+      }
+    });
+    return await modal.present();
   }
 
 }

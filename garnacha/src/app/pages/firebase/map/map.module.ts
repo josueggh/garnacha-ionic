@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 
 import { MapPage } from './map.page';
 import { SharableModule } from '../../../components/sharable.module';
+import { ModalComponent } from '../../../components/modal/modal.component';
 
 
 @NgModule({
+  entryComponents: [ModalComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,6 +24,6 @@ import { SharableModule } from '../../../components/sharable.module';
       }
     ])
   ],
-  declarations: [MapPage]
+  declarations: [MapPage, ModalComponent]
 })
 export class MapPageModule {}

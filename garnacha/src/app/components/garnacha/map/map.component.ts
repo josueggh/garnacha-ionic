@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, Input, Renderer2, Output } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { ListService } from '../../../services/data-services/list.service';
-import { makeRe } from 'minimatch';
 import { EventEmitter } from '@angular/core';
 import { List } from '../../../models/list.model'
 
@@ -42,18 +41,9 @@ export class MapComponent implements OnInit, AfterViewInit {
       lat: center.lat,
       lng: center.lng
     };
-    //console.log(list);
     return this.listService.getDetails(list);
   }
-  /*getMarkers(center) {
-    const list = {
-      type: 'bylocation',
-      lat: center.lat,
-      lng: center.lng,
-    };
-    return this.listService.getDetails(list);
-  }*/
-
+ 
   getRandomPhoto(business, size = 200, random = false) {
     let img = 'https://www.garnacha.mx/static/img/GRN-generico.jpg';
     if (business.photos && business.photos.length) {
