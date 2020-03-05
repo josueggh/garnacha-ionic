@@ -10,7 +10,10 @@ import { ModalComponent } from '../../../components/modal/modal.component';
 })
 export class MapPage implements OnInit {
 
-  center;
+  center = {
+    lat: 19.4313681,
+    lng: -99.1472774
+  };
 
   constructor(
     private platform: Platform,

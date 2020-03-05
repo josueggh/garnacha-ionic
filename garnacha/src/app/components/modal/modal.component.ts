@@ -21,7 +21,7 @@ export class ModalComponent implements OnInit {
   ngOnInit() {}
 
   moveTo() {
-    this.router.navigate([`/places/${this.info.slug}`]);
+    this.router.navigate([`/app/detail/${this.info.slug}`]);
     this.modalController.dismiss({dismissed: true});
   }
 
