@@ -31,6 +31,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'login',
+        children : [
+          {
+            path : '',
+            loadChildren: '../pages/firebase/login/login.module#LoginPageModule' 
+          }
+        ]
+      },
+      {
+        path: 'detail/:path',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/firebase/business-detail/business-detail.module#BusinessDetailPageModule'
+          }
+        ]
+      },
+      {
         path: 'map',
         children: [
           {

@@ -36,8 +36,8 @@ export class LoginPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.menuCtrl.enable(false, 'start');
-    this.menuCtrl.enable(false, 'end');
+    this.menuCtrl.enable(true, 'start');
+    this.menuCtrl.enable(true, 'end');
     this.platform.ready().then(() => {
       this.splashScreen.hide();
       this.showPhoneAuth = this.platform.is('desktop') || this.platform.is('pwa')

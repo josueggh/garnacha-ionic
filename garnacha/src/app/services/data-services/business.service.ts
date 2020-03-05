@@ -43,7 +43,7 @@ export class BusinessService extends BaseDataService <Business>{
     return this.firestore.runQuery<Business>(this.baseCollection, query);
   }
 
-  public getFirstOrderBy(orderBy: any, limit:number =20): Observable<Business[]> {
+  public getFirstOrderBy(orderBy: any, limit:number =10): Observable<Business[]> {
     const query :FirestoreQuery = {
       orderBy,
       limit,
@@ -61,7 +61,7 @@ export class BusinessService extends BaseDataService <Business>{
     return randomObserver;
   }
 
-  public getByTag(tag: string, orderBy: any, limit:number = 25){
+  public getByTag(tag: string, orderBy: any, limit:number = 10){
     const query :FirestoreQuery = {
       orderBy,
       where : { field :'tags', operation:'array-contains', key: tag},

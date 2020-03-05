@@ -23,7 +23,7 @@ export class GuardsService implements CanActivate {
       if(user){
         return true;
       } else{
-        this.util.navigate('login',true);
+        this.util.navigate('app/login',true);
       }
     })
   }
